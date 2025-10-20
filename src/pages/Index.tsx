@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { MarketOverview } from "@/components/MarketOverview";
 import { TradingFeatures } from "@/components/TradingFeatures";
@@ -8,6 +9,7 @@ import { NewsSection } from "@/components/NewsSection";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <Hero />
       <MarketOverview />
       <LiveChart />
