@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChartBar, Wallet, Bot, GraduationCap, Coins, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -15,10 +16,12 @@ export const Header = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-1">
-          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-            <ChartBar className="mr-2 h-4 w-4" />
-            Análisis
-          </Button>
+          <Link to="/analisis">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              <ChartBar className="mr-2 h-4 w-4" />
+              Análisis
+            </Button>
+          </Link>
           <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             <Wallet className="mr-2 h-4 w-4" />
             Portfolio
