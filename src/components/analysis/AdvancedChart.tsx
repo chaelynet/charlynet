@@ -3,44 +3,74 @@ import { Button } from "@/components/ui/button";
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { useState, useEffect } from "react";
 import { TrendingUp, TrendingDown } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 
 interface AdvancedChartProps {
   crypto: string;
 }
 
+interface ChartDataPoint {
+  time: string;
+  price: number;
+  volume: number;
+  ma7?: number;
+  ma25?: number;
+}
+
+const fetchCryptoChart = async (cryptoId: string, days: string): Promise<ChartDataPoint[]> => {
+  const response = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=${days}`
+  );
+  if (!response.ok) throw new Error('Failed to fetch chart data');
+  const data = await response.json();
+  
+  // Transform data into chart format
+  const prices = data.prices;
+  const volumes = data.total_volumes;
+  
+  // Calculate time intervals based on days
+  const interval = days === '1' ? 1 : days === '7' ? 6 : days === '30' ? 24 : 365;
+  
+  return prices.map((price: [number, number], index: number) => {
+    const date = new Date(price[0]);
+    const timeStr = days === '1' 
+      ? date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
+      : days === '7'
+      ? date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' })
+      : date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' });
+    
+    return {
+      time: timeStr,
+      price: price[1],
+      volume: volumes[index] ? volumes[index][1] : 0,
+    };
+  }).filter((_, index) => index % interval === 0);
+};
+
+const getDaysFromTimeframe = (tf: string): string => {
+  switch(tf) {
+    case '1h': return '1';
+    case '24h': return '1';
+    case '7d': return '7';
+    case '30d': return '30';
+    case '1y': return '365';
+    default: return '1';
+  }
+};
+
 export const AdvancedChart = ({ crypto }: AdvancedChartProps) => {
   const [timeframe, setTimeframe] = useState("24h");
-  const [chartData, setChartData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  
+  const { data: chartData, isLoading } = useQuery({
+    queryKey: ['cryptoChart', crypto, timeframe],
+    queryFn: () => fetchCryptoChart(crypto, getDaysFromTimeframe(timeframe)),
+    refetchInterval: 60000, // Refetch every minute
+  });
 
-  useEffect(() => {
-    // Simulated data - In production, fetch from CoinGecko or similar API
-    const generateData = () => {
-      const data = [];
-      const basePrice = 40000;
-      for (let i = 0; i < 24; i++) {
-        data.push({
-          time: `${i}:00`,
-          price: basePrice + Math.random() * 2000 - 1000,
-          volume: Math.random() * 1000000000,
-          ma7: basePrice + Math.random() * 1500 - 750,
-          ma25: basePrice + Math.random() * 1000 - 500,
-        });
-      }
-      return data;
-    };
-
-    setLoading(true);
-    setTimeout(() => {
-      setChartData(generateData());
-      setLoading(false);
-    }, 500);
-  }, [crypto, timeframe]);
-
-  const currentPrice = chartData.length > 0 ? chartData[chartData.length - 1].price : 0;
-  const previousPrice = chartData.length > 1 ? chartData[0].price : 0;
+  const currentPrice = chartData && chartData.length > 0 ? chartData[chartData.length - 1].price : 0;
+  const previousPrice = chartData && chartData.length > 1 ? chartData[0].price : 0;
   const priceChange = currentPrice - previousPrice;
-  const priceChangePercent = ((priceChange / previousPrice) * 100).toFixed(2);
+  const priceChangePercent = previousPrice > 0 ? ((priceChange / previousPrice) * 100).toFixed(2) : '0.00';
 
   return (
     <Card className="glass-effect p-6 border-border">
@@ -75,7 +105,7 @@ export const AdvancedChart = ({ crypto }: AdvancedChartProps) => {
         </div>
       </div>
 
-      {loading ? (
+      {isLoading ? (
         <div className="h-[400px] flex items-center justify-center">
           <div className="animate-pulse text-muted-foreground">Cargando datos...</div>
         </div>
@@ -115,22 +145,6 @@ export const AdvancedChart = ({ crypto }: AdvancedChartProps) => {
               strokeWidth={2}
               fill="url(#colorPrice)" 
               name="Precio"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="ma7" 
-              stroke="hsl(var(--accent))" 
-              strokeWidth={1.5}
-              dot={false}
-              name="MA 7"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="ma25" 
-              stroke="hsl(var(--success))" 
-              strokeWidth={1.5}
-              dot={false}
-              name="MA 25"
             />
           </AreaChart>
         </ResponsiveContainer>

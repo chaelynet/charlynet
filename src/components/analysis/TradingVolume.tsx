@@ -1,23 +1,60 @@
 import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { useQuery } from "@tanstack/react-query";
 
 interface TradingVolumeProps {
   crypto: string;
 }
 
-export const TradingVolume = ({ crypto }: TradingVolumeProps) => {
-  const volumeData = [
-    { time: "00:00", buyVolume: 450000000, sellVolume: 420000000 },
-    { time: "04:00", buyVolume: 380000000, sellVolume: 350000000 },
-    { time: "08:00", buyVolume: 520000000, sellVolume: 480000000 },
-    { time: "12:00", buyVolume: 680000000, sellVolume: 650000000 },
-    { time: "16:00", buyVolume: 590000000, sellVolume: 610000000 },
-    { time: "20:00", buyVolume: 470000000, sellVolume: 440000000 },
-  ];
+const fetchVolumeData = async (cryptoId: string) => {
+  const response = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=1`
+  );
+  if (!response.ok) throw new Error('Failed to fetch volume data');
+  const data = await response.json();
+  
+  const volumes = data.total_volumes;
+  const prices = data.prices;
+  
+  // Group by 4-hour intervals
+  const interval = Math.floor(volumes.length / 6);
+  
+  return Array.from({ length: 6 }, (_, i) => {
+    const startIdx = i * interval;
+    const endIdx = Math.min((i + 1) * interval, volumes.length);
+    const volumeSlice = volumes.slice(startIdx, endIdx);
+    const priceSlice = prices.slice(startIdx, endIdx);
+    
+    const avgVolume = volumeSlice.reduce((sum: number, [, vol]: [number, number]) => sum + vol, 0) / volumeSlice.length;
+    
+    // Estimate buy/sell volume based on price movement
+    const priceStart = priceSlice[0]?.[1] || 0;
+    const priceEnd = priceSlice[priceSlice.length - 1]?.[1] || 0;
+    const buyRatio = priceEnd > priceStart ? 0.55 : 0.45;
+    
+    const date = new Date(volumes[startIdx][0]);
+    const timeStr = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    
+    return {
+      time: timeStr,
+      buyVolume: avgVolume * buyRatio,
+      sellVolume: avgVolume * (1 - buyRatio),
+    };
+  });
+};
 
-  const totalBuyVolume = volumeData.reduce((sum, d) => sum + d.buyVolume, 0);
-  const totalSellVolume = volumeData.reduce((sum, d) => sum + d.sellVolume, 0);
-  const buyPressure = ((totalBuyVolume / (totalBuyVolume + totalSellVolume)) * 100).toFixed(1);
+export const TradingVolume = ({ crypto }: TradingVolumeProps) => {
+  const { data: volumeData, isLoading } = useQuery({
+    queryKey: ['volumeData', crypto],
+    queryFn: () => fetchVolumeData(crypto),
+    refetchInterval: 60000,
+  });
+
+  const totalBuyVolume = volumeData?.reduce((sum, d) => sum + d.buyVolume, 0) || 0;
+  const totalSellVolume = volumeData?.reduce((sum, d) => sum + d.sellVolume, 0) || 0;
+  const buyPressure = totalBuyVolume + totalSellVolume > 0 
+    ? ((totalBuyVolume / (totalBuyVolume + totalSellVolume)) * 100).toFixed(1)
+    : '50.0';
 
   return (
     <Card className="glass-effect p-6 border-border">
@@ -47,8 +84,13 @@ export const TradingVolume = ({ crypto }: TradingVolumeProps) => {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={volumeData}>
+      {isLoading ? (
+        <div className="h-[300px] flex items-center justify-center">
+          <div className="animate-pulse text-muted-foreground">Cargando volumen...</div>
+        </div>
+      ) : (
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={volumeData}>
           <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
           <XAxis 
             dataKey="time" 
@@ -82,8 +124,9 @@ export const TradingVolume = ({ crypto }: TradingVolumeProps) => {
             name="Volumen Venta"
             radius={[4, 4, 0, 0]}
           />
-        </BarChart>
-      </ResponsiveContainer>
+          </BarChart>
+        </ResponsiveContainer>
+      )}
     </Card>
   );
 };

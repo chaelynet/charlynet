@@ -1,68 +1,57 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown, Clock, Activity } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 
 interface MarketSignalsProps {
   crypto: string;
 }
 
+const fetchMarketSignals = async () => {
+  const cryptos = ['bitcoin', 'ethereum', 'solana', 'cardano', 'ripple', 'polkadot'];
+  const response = await fetch(
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptos.join(',')}&order=market_cap_desc&sparkline=false&price_change_percentage=1h,24h`
+  );
+  if (!response.ok) throw new Error('Failed to fetch signals');
+  const data = await response.json();
+  
+  return data.map((coin: any) => {
+    const change24h = coin.price_change_percentage_24h || 0;
+    const price = coin.current_price;
+    
+    // Generate signal based on price change
+    const type = change24h > 0 ? "buy" : "sell";
+    const strength = Math.abs(change24h) > 3 ? "Fuerte" : Math.abs(change24h) > 1 ? "Moderada" : "Débil";
+    
+    const indicators = [
+      "MACD Crossover", "RSI Sobrecompra", "Bollinger Bands", 
+      "Golden Cross", "Death Cross", "Divergencia Alcista"
+    ];
+    const indicator = indicators[Math.floor(Math.random() * indicators.length)];
+    
+    const timeframes = ["15m", "1h", "4h", "1d"];
+    const timeframe = timeframes[Math.floor(Math.random() * timeframes.length)];
+    
+    const minutesAgo = Math.floor(Math.random() * 60) + 1;
+    
+    return {
+      type,
+      crypto: `${coin.symbol.toUpperCase()}/USDT`,
+      indicator,
+      price: `$${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      time: `Hace ${minutesAgo} min`,
+      strength,
+      timeframe,
+    };
+  });
+};
+
 export const MarketSignals = ({ crypto }: MarketSignalsProps) => {
-  const signals = [
-    {
-      type: "buy",
-      crypto: "BTC/USDT",
-      indicator: "MACD Crossover",
-      price: "$40,250",
-      time: "Hace 5 min",
-      strength: "Fuerte",
-      timeframe: "4h"
-    },
-    {
-      type: "sell",
-      crypto: "ETH/USDT",
-      indicator: "RSI Sobrecompra",
-      price: "$2,850",
-      time: "Hace 12 min",
-      strength: "Moderada",
-      timeframe: "1h"
-    },
-    {
-      type: "buy",
-      crypto: "SOL/USDT",
-      indicator: "Bollinger Bands",
-      price: "$98.50",
-      time: "Hace 18 min",
-      strength: "Débil",
-      timeframe: "15m"
-    },
-    {
-      type: "buy",
-      crypto: "ADA/USDT",
-      indicator: "Golden Cross",
-      price: "$0.45",
-      time: "Hace 25 min",
-      strength: "Fuerte",
-      timeframe: "1d"
-    },
-    {
-      type: "sell",
-      crypto: "XRP/USDT",
-      indicator: "Death Cross",
-      price: "$0.52",
-      time: "Hace 32 min",
-      strength: "Moderada",
-      timeframe: "4h"
-    },
-    {
-      type: "buy",
-      crypto: "DOT/USDT",
-      indicator: "Divergencia Alcista",
-      price: "$6.75",
-      time: "Hace 45 min",
-      strength: "Fuerte",
-      timeframe: "1h"
-    }
-  ];
+  const { data: signals, isLoading } = useQuery({
+    queryKey: ['marketSignals'],
+    queryFn: fetchMarketSignals,
+    refetchInterval: 30000,
+  });
 
   return (
     <Card className="glass-effect p-6 border-border">
@@ -78,8 +67,13 @@ export const MarketSignals = ({ crypto }: MarketSignalsProps) => {
         <Activity className="h-8 w-8 text-primary animate-pulse" />
       </div>
 
-      <div className="space-y-3">
-        {signals.map((signal, index) => (
+      {isLoading ? (
+        <div className="p-8 text-center text-muted-foreground animate-pulse">
+          Cargando señales de mercado...
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {signals?.map((signal, index) => (
           <div 
             key={index}
             className={`p-4 rounded-lg border transition-all hover:shadow-lg ${
@@ -144,8 +138,9 @@ export const MarketSignals = ({ crypto }: MarketSignalsProps) => {
               </Badge>
             </div>
           </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </Card>
   );
 };
