@@ -10,6 +10,7 @@ import { AnalisisTab } from "@/components/tabs/AnalisisTab";
 import { TokenTIATab } from "@/components/tabs/TokenTIATab";
 import { EducacionTab } from "@/components/tabs/EducacionTab";
 import { PortfolioTab } from "@/components/tabs/PortfolioTab";
+import { FundacionTab } from "@/components/tabs/FundacionTab";
 
 export type TabType = "inicio" | "analisis" | "portfolio" | "autobot" | "educacion" | "tokentia" | "fundacion";
 
@@ -37,6 +38,8 @@ const Index = () => {
         return <TokenTIATab />;
       case "educacion":
         return <EducacionTab />;
+      case "fundacion":
+        return <FundacionTab />;
       default:
         return (
           <div className="container mx-auto px-4 py-20 text-center">
