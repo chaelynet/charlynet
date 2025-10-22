@@ -9,6 +9,7 @@ import { NewsSection } from "@/components/NewsSection";
 import { AnalisisTab } from "@/components/tabs/AnalisisTab";
 import { TokenTIATab } from "@/components/tabs/TokenTIATab";
 import { EducacionTab } from "@/components/tabs/EducacionTab";
+import { PortfolioTab } from "@/components/tabs/PortfolioTab";
 
 export type TabType = "inicio" | "analisis" | "portfolio" | "autobot" | "educacion" | "tokentia" | "fundacion";
 
@@ -30,6 +31,8 @@ const Index = () => {
         );
       case "analisis":
         return <AnalisisTab />;
+      case "portfolio":
+        return <PortfolioTab />;
       case "tokentia":
         return <TokenTIATab />;
       case "educacion":
