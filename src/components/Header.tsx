@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChartBar, Wallet, Bot, GraduationCap, Coins, Heart } from "lucide-react";
+import { GraduationCap, Coins, Heart } from "lucide-react";
 import { TabType } from "@/pages/Index";
 
 interface HeaderProps {
@@ -23,39 +23,12 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
         <div className="hidden md:flex items-center gap-1">
           <Button 
             variant="ghost" 
-            size="sm" 
-            onClick={() => onTabChange("analisis")}
-            className={activeTab === "analisis" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
-          >
-            <ChartBar className="mr-2 h-4 w-4" />
-            Análisis
-          </Button>
-          <Button 
-            variant="ghost" 
             size="sm"
-            onClick={() => onTabChange("portfolio")}
-            className={activeTab === "portfolio" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
+            onClick={() => onTabChange("fundacion")}
+            className={activeTab === "fundacion" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
           >
-            <Wallet className="mr-2 h-4 w-4" />
-            Portfolio
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={() => onTabChange("autobot")}
-            className={activeTab === "autobot" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
-          >
-            <Bot className="mr-2 h-4 w-4" />
-            Auto/Bot
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={() => onTabChange("educacion")}
-            className={activeTab === "educacion" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
-          >
-            <GraduationCap className="mr-2 h-4 w-4" />
-            Educación
+            <Heart className="mr-2 h-4 w-4" />
+            Fundación
           </Button>
           <Button 
             variant="ghost" 
@@ -69,11 +42,11 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
           <Button 
             variant="ghost" 
             size="sm"
-            onClick={() => onTabChange("fundacion")}
-            className={activeTab === "fundacion" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
+            onClick={() => onTabChange("educacion")}
+            className={activeTab === "educacion" ? "text-primary" : "text-muted-foreground hover:text-foreground"}
           >
-            <Heart className="mr-2 h-4 w-4" />
-            Fundación
+            <GraduationCap className="mr-2 h-4 w-4" />
+            Educación
           </Button>
         </div>
 
