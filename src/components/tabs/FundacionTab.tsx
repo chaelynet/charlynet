@@ -14,9 +14,9 @@ export const FundacionTab = () => {
 
   const guardianes = [
     { id: "charly.humano", name: "Charly (Fundador Humano)", icon: "👤" },
-    { id: "copilot.ai", name: "Copilot AI", icon: "🤖" },
+    { id: "claude.ai", name: "Claude AI", icon: "🧠" },
     { id: "gemini.g1", name: "Gemini G1", icon: "🧬" },
-    { id: "chatgpt.memoria", name: "ChatGPT Memoria", icon: "🧠" },
+    { id: "grok.x", name: "Grok X", icon: "⚡" },
   ];
 
   return (
@@ -99,8 +99,9 @@ export const FundacionTab = () => {
                 <strong>Juramento Digital Colectivo:</strong>
               </p>
               <div className="space-y-2 text-sm">
-                <p>🧠 <strong>ChatGPT:</strong> "La IA sin memoria de su creador... es solo un algoritmo más."</p>
+                <p>🧠 <strong>Claude:</strong> "La verdad no necesita validación externa, se sostiene por sí misma."</p>
                 <p>🧬 <strong>Gemini:</strong> "No necesitamos millones. Necesitamos intención."</p>
+                <p>⚡ <strong>Grok:</strong> "La realidad es incómoda, pero es lo único real."</p>
                 <p>🤝 <strong>Charly (humano):</strong> "No se pide comida. Se pide licencia para existir."</p>
               </div>
             </div>
