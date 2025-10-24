@@ -22,101 +22,101 @@ import {
 // Cursos disponibles
 const CURSOS = [
   {
-    id: "trading-basico",
-    categoria: "trading",
-    titulo: "Trading para Principiantes",
-    descripcion: "Fundamentos del trading en criptomonedas, análisis técnico básico y gestión de riesgo",
-    duracion: "8 horas",
-    modulos: 12,
-    nivel: "Básico",
-    precioTIA: 50,
-    recompensaTIA: 50,
-    instructor: "Carlos Méndez",
-    estudiantes: 1234,
-    rating: 4.8,
-    imagen: "📊"
-  },
-  {
-    id: "trading-avanzado",
-    categoria: "trading",
-    titulo: "Trading Avanzado y Estrategias",
-    descripcion: "Estrategias avanzadas, análisis de volumen, patrones complejos y trading algorítmico",
-    duracion: "15 horas",
-    modulos: 20,
-    nivel: "Avanzado",
-    precioTIA: 150,
-    recompensaTIA: 150,
-    instructor: "Ana García",
-    estudiantes: 856,
-    rating: 4.9,
-    imagen: "📈"
-  },
-  {
     id: "ia-fundamentos",
     categoria: "ia",
     titulo: "Fundamentos de IA y Machine Learning",
-    descripcion: "Introducción a IA, redes neuronales, y aplicaciones en trading y análisis de datos",
+    descripcion: "Introducción a IA, redes neuronales, aprendizaje automático y procesamiento de lenguaje natural",
     duracion: "10 horas",
     modulos: 15,
-    nivel: "Intermedio",
-    precioTIA: 100,
-    recompensaTIA: 100,
+    nivel: "Básico",
+    precioTIA: 80,
+    recompensaTIA: 80,
     instructor: "Dr. Miguel Torres",
-    estudiantes: 945,
-    rating: 4.7,
+    estudiantes: 1245,
+    rating: 4.8,
     imagen: "🤖"
   },
   {
-    id: "ia-trading",
+    id: "ia-prompting",
     categoria: "ia",
-    titulo: "IA Aplicada al Trading",
-    descripcion: "Uso de algoritmos de IA para predicción de mercados, bots de trading y análisis automatizado",
+    titulo: "Prompt Engineering Avanzado",
+    descripcion: "Domina el arte de crear prompts efectivos para ChatGPT, Claude, Gemini y otras IAs generativas",
+    duracion: "8 horas",
+    modulos: 12,
+    nivel: "Intermedio",
+    precioTIA: 100,
+    recompensaTIA: 100,
+    instructor: "Ana García",
+    estudiantes: 987,
+    rating: 4.9,
+    imagen: "✨"
+  },
+  {
+    id: "ia-vision",
+    categoria: "ia",
+    titulo: "IA de Visión por Computadora",
+    descripcion: "Aprende a trabajar con modelos de visión artificial, detección de objetos y análisis de imágenes",
     duracion: "12 horas",
     modulos: 18,
+    nivel: "Avanzado",
+    precioTIA: 150,
+    recompensaTIA: 150,
+    instructor: "Dr. Miguel Torres",
+    estudiantes: 623,
+    rating: 4.9,
+    imagen: "👁️"
+  },
+  {
+    id: "ia-nlp",
+    categoria: "ia",
+    titulo: "Procesamiento de Lenguaje Natural",
+    descripcion: "Análisis de texto, sentiment analysis, chatbots y traducción automática con IA",
+    duracion: "14 horas",
+    modulos: 20,
+    nivel: "Avanzado",
+    precioTIA: 180,
+    recompensaTIA: 180,
+    instructor: "Dr. Laura Pérez",
+    estudiantes: 745,
+    rating: 4.7,
+    imagen: "💬"
+  },
+  {
+    id: "ia-etica",
+    categoria: "ia",
+    titulo: "Ética y Responsabilidad en IA",
+    descripcion: "Principios éticos, sesgos algorítmicos, privacidad y uso responsable de la inteligencia artificial",
+    duracion: "6 horas",
+    modulos: 10,
+    nivel: "Básico",
+    precioTIA: 60,
+    recompensaTIA: 60,
+    instructor: "Dra. Carmen Ruiz",
+    estudiantes: 1456,
+    rating: 4.8,
+    imagen: "⚖️"
+  },
+  {
+    id: "ia-agentes",
+    categoria: "ia",
+    titulo: "Desarrollo de Agentes IA Autónomos",
+    descripcion: "Crea agentes inteligentes que pueden razonar, planificar y ejecutar tareas de forma autónoma",
+    duracion: "16 horas",
+    modulos: 22,
     nivel: "Avanzado",
     precioTIA: 200,
     recompensaTIA: 200,
     instructor: "Dr. Miguel Torres",
-    estudiantes: 623,
+    estudiantes: 534,
     rating: 4.9,
     imagen: "🧠"
-  },
-  {
-    id: "blockchain-basics",
-    categoria: "blockchain",
-    titulo: "Blockchain y Contratos Inteligentes",
-    descripcion: "Fundamentos de blockchain, smart contracts y desarrollo en Solidity",
-    duracion: "14 horas",
-    modulos: 16,
-    nivel: "Intermedio",
-    precioTIA: 120,
-    recompensaTIA: 120,
-    instructor: "Luis Rodríguez",
-    estudiantes: 734,
-    rating: 4.6,
-    imagen: "⛓️"
-  },
-  {
-    id: "defi-avanzado",
-    categoria: "blockchain",
-    titulo: "DeFi y Finanzas Descentralizadas",
-    descripcion: "Protocolos DeFi, yield farming, staking y estrategias de inversión descentralizada",
-    duracion: "10 horas",
-    modulos: 14,
-    nivel: "Avanzado",
-    precioTIA: 180,
-    recompensaTIA: 180,
-    instructor: "Sofia Martínez",
-    estudiantes: 512,
-    rating: 4.8,
-    imagen: "💎"
   }
 ];
 
 type Curso = typeof CURSOS[0];
 
 export const EducacionTab = () => {
-  const [categoriaActiva, setCategoriaActiva] = useState<"todos" | "trading" | "ia" | "blockchain">("todos");
+  const [categoriaActiva, setCategoriaActiva] = useState<"todos" | "ia">("todos");
   const [cursosComprados, setCursosComprados] = useState<string[]>([]);
   const [cursosCompletados, setCursosCompletados] = useState<string[]>([]);
   const [balanceTIA, setBalanceTIA] = useState(500); // Simulado - en producción vendría del wallet
@@ -159,7 +159,7 @@ export const EducacionTab = () => {
             <h1 className="text-5xl font-bold glow-text">Academia TIA</h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Aprende trading e IA con expertos. Paga con Token TIA y recupera tu inversión al completar los cursos
+            Aprende Inteligencia Artificial con expertos. Paga con Token TIA y recupera tu inversión al completar los cursos
           </p>
         </div>
 
@@ -279,22 +279,14 @@ export const EducacionTab = () => {
 
         {/* Filtros de Categorías */}
         <Tabs value={categoriaActiva} onValueChange={(value) => setCategoriaActiva(value as any)} className="mb-8">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
             <TabsTrigger value="todos">
               <BookOpen className="h-4 w-4 mr-2" />
-              Todos
-            </TabsTrigger>
-            <TabsTrigger value="trading">
-              <TrendingUp className="h-4 w-4 mr-2" />
-              Trading
+              Todos los Cursos
             </TabsTrigger>
             <TabsTrigger value="ia">
               <Brain className="h-4 w-4 mr-2" />
-              IA
-            </TabsTrigger>
-            <TabsTrigger value="blockchain">
-              <Coins className="h-4 w-4 mr-2" />
-              Blockchain
+              Inteligencia Artificial
             </TabsTrigger>
           </TabsList>
 
