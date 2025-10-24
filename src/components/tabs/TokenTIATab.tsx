@@ -62,9 +62,13 @@ export const TokenTIATab = () => {
             </div>
             <h1 className="text-5xl font-bold glow-text">Token TIA</h1>
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
             Desbloquea características premium y recompensas exclusivas según tu holding de tokens TIA en BSC
           </p>
+          <div className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30">
+            <h2 className="text-2xl font-bold text-primary mb-1">Proyectos, Certificaciones</h2>
+            <p className="text-lg font-semibold text-foreground">Holder Solidarios</p>
+          </div>
         </div>
 
         {/* Wallet Checker */}
