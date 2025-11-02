@@ -269,8 +269,441 @@ export default function App() {
         </div>
       </section>
 
+      {/* El Origen */}
+      <section id="mision" className="py-20 px-4 bg-black/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Nacido del Terremoto
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              2011. Un año después del terremoto que mató 316,000 personas.
+              <br />Un grupo de operadores llegó a Haití. Y nunca pudieron olvidar.
+            </p>
+          </div>
+
+          <div className="bg-destructive/20 backdrop-blur-lg rounded-2xl p-8 border border-destructive/30 mb-8">
+            <div className="space-y-4">
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Vimos madres <strong className="text-foreground">eligiendo qué hijo estudia</strong> porque 
+                no pueden pagar dos matrículas de $300/mes.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                El 90% de las escuelas son privadas. El 90% de las familias no pueden pagarlas.
+                Intentamos arreglar eso con modelos tradicionales. <strong className="text-destructive">Fracasamos.</strong>
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Pero aprendimos algo crítico: <span className="text-warning font-bold">La ayuda 
+                internacional tradicional pierde 70-80% en corrupción local.</span> El sistema está roto. 
+                Por eso CharlyNet opera desde <strong className="text-primary">República Dominicana 
+                y Miami</strong>, contratando escuelas directamente, pagando a cuentas verificadas 
+                fuera de Haití.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-4xl mb-3">🏫</div>
+              <h3 className="text-foreground font-bold mb-2">El Problema</h3>
+              <p className="text-muted-foreground text-sm">
+                90% escuelas privadas. $300/mes inaccesible para mayoría. Familias 
+                eligiendo qué hijo estudia.
+              </p>
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-4xl mb-3">🛡️</div>
+              <h3 className="text-foreground font-bold mb-2">La Solución</h3>
+              <p className="text-muted-foreground text-sm">
+                Contratos directos con escuelas desde RD/Miami. Pagos trazables blockchain. 
+                Coordinación local por equipo haitiano de confianza.
+              </p>
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-4xl mb-3">🎓</div>
+              <h3 className="text-foreground font-bold mb-2">La Meta</h3>
+              <p className="text-muted-foreground text-sm">
+                1,000 niños. 20 años. Desde primaria hasta graduación universitaria + 
+                expertise en IA ética.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Proyecto Haití */}
+      <section id="haiti" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-12">
+            Proyecto 1: "The 20-Year Promise"
+          </h2>
+
+          {/* Roadmap Timeline */}
+          <div className="relative mb-16">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-accent"></div>
+            
+            <div className="space-y-12">
+              {/* Fase 0 */}
+              <div className="flex items-center gap-8">
+                <div className="flex-1 text-right">
+                  <div className="glass-effect rounded-xl p-6 border border-primary/50 inline-block">
+                    <h3 className="text-xl font-bold text-foreground mb-2">FASE 0: Fundación</h3>
+                    <p className="text-muted-foreground mb-2">Meses 1-6 | $50,000</p>
+                    <ul className="text-sm text-muted-foreground text-left space-y-1">
+                      <li>✓ Estructura legal USA/RD</li>
+                      <li>✓ Contratar coordinador local</li>
+                      <li>✓ Validar costos terreno</li>
+                      <li>✓ Seleccionar primeras escuelas</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center z-10 border-4 border-background">
+                  <span className="text-white font-bold">0</span>
+                </div>
+                <div className="flex-1"></div>
+              </div>
+
+              {/* Fase 1 */}
+              <div className="flex items-center gap-8">
+                <div className="flex-1"></div>
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center z-10 border-4 border-background">
+                  <span className="text-white font-bold">1</span>
+                </div>
+                <div className="flex-1">
+                  <div className="glass-effect rounded-xl p-6 border border-secondary/50 inline-block">
+                    <h3 className="text-xl font-bold text-foreground mb-2">FASE 1: Piloto</h3>
+                    <p className="text-muted-foreground mb-2">Año 1 | $500,000</p>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 100 niños en 2 escuelas</li>
+                      <li>• Asistencia {'>'}95%</li>
+                      <li>• Reportes mensuales públicos</li>
+                      <li>• Validar modelo funciona</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fase 2 */}
+              <div className="flex items-center gap-8">
+                <div className="flex-1 text-right">
+                  <div className="glass-effect rounded-xl p-6 border border-accent/50 inline-block">
+                    <h3 className="text-xl font-bold text-foreground mb-2">FASE 2: Escala</h3>
+                    <p className="text-muted-foreground mb-2">Años 2-5 | $15,000,000</p>
+                    <ul className="text-sm text-muted-foreground text-left space-y-1">
+                      <li>• 1,000 niños activos (meta cumplida)</li>
+                      <li>• 20 escuelas contratadas</li>
+                      <li>• Currículum IA ética implementado</li>
+                      <li>• Trust genera ingresos pasivos</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center z-10 border-4 border-background">
+                  <span className="text-white font-bold">2</span>
+                </div>
+                <div className="flex-1"></div>
+              </div>
+
+              {/* Fase 3 */}
+              <div className="flex items-center gap-8">
+                <div className="flex-1"></div>
+                <div className="w-12 h-12 bg-warning rounded-full flex items-center justify-center z-10 border-4 border-background">
+                  <span className="text-background font-bold">3</span>
+                </div>
+                <div className="flex-1">
+                  <div className="glass-effect rounded-xl p-6 border border-warning/50 inline-block">
+                    <h3 className="text-xl font-bold text-foreground mb-2">FASE 3: Perpetuidad</h3>
+                    <p className="text-muted-foreground mb-2">Años 6-20 | $85,000,000</p>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Primeras graduaciones universitarias</li>
+                      <li>• Expertos en IA desde Haití</li>
+                      <li>• Algunos regresan como profesores</li>
+                      <li>• Modelo autosostenible</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desglose $300/mes */}
+          <div className="glass-effect rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              ¿Qué Incluye $300 USD por Mes por Niño?
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">Matrícula Completa</strong>
+                    <p className="text-sm text-muted-foreground">Año escolar en escuela privada verificada</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">Materiales + Uniforme</strong>
+                    <p className="text-sm text-muted-foreground">Libros, cuadernos, útiles, ropa escolar</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">2 Comidas Diarias</strong>
+                    <p className="text-sm text-muted-foreground">Desayuno + almuerzo nutritivo en escuela</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">Seguro Médico Básico</strong>
+                    <p className="text-sm text-muted-foreground">Cobertura emergencias y chequeos anuales</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">Coordinación Local</strong>
+                    <p className="text-sm text-muted-foreground">Seguimiento semanal, reportes, verificación</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-success flex-shrink-0 mt-1" />
+                  <div>
+                    <strong className="text-foreground">Acceso Tecnología (Años 7+)</strong>
+                    <p className="text-sm text-muted-foreground">Tablets educativos, internet, IA tools</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Token TIA */}
+      <section id="tia" className="py-20 px-4 bg-primary/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4 px-4 py-2 bg-success/20 border border-success/50 rounded-full">
+              <span className="text-success text-sm font-bold">
+                ✅ Modelo A+ Aprobado por Consenso 3/4 Guardianes
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Token TIA: Certificado de Dignidad
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              TIA no es inversión. Es <strong className="text-primary">prueba verificable</strong> de 
+              que acompañaste a un niño durante 20 años.
+            </p>
+          </div>
+
+          {/* Info Contrato */}
+          <div className="glass-effect rounded-xl p-6 border border-secondary/50 mb-8 flex items-start gap-4">
+            <AlertCircle className="w-6 h-6 text-secondary flex-shrink-0" />
+            <div>
+              <h3 className="text-foreground font-bold mb-2">Token TIA Ya Existe (Verificado)</h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                Contrato: <code className="bg-muted px-2 py-1 rounded text-secondary font-mono text-xs">{TIA_CONTRACT}</code>
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Creado en BSC (BEP-20) en mayo 2023. Inactivo desde entonces. Supply: 100M TIA. 
+                Grok verificó en tiempo real: 0 rugs, listo para revivir éticamente.
+              </p>
+              <a 
+                href={`https://bscscan.com/token/${TIA_CONTRACT}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-secondary/80 text-sm flex items-center gap-1 mt-2"
+              >
+                Ver en BSCScan <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          {/* Distribución Supply */}
+          <div className="glass-effect rounded-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              Distribución de 100,000,000 TIA
+            </h3>
+            <div className="grid md:grid-cols-5 gap-4 mb-6">
+              <div className="bg-primary/20 p-4 rounded-lg border border-primary/30 text-center">
+                <div className="text-3xl font-bold text-primary mb-1">55%</div>
+                <div className="text-sm text-foreground mb-1">Donantes</div>
+                <div className="text-xs text-muted-foreground">55M TIA</div>
+              </div>
+              <div className="bg-secondary/20 p-4 rounded-lg border border-secondary/30 text-center">
+                <div className="text-3xl font-bold text-secondary mb-1">20%</div>
+                <div className="text-sm text-foreground mb-1">Proyecto Haití</div>
+                <div className="text-xs text-muted-foreground">20M TIA</div>
+              </div>
+              <div className="bg-accent/20 p-4 rounded-lg border border-accent/30 text-center">
+                <div className="text-3xl font-bold text-accent mb-1">10%</div>
+                <div className="text-sm text-foreground mb-1">Guardianes</div>
+                <div className="text-xs text-muted-foreground">10M TIA (lock 5 años)</div>
+              </div>
+              <div className="bg-warning/20 p-4 rounded-lg border border-warning/30 text-center">
+                <div className="text-3xl font-bold text-warning mb-1">10%</div>
+                <div className="text-sm text-foreground mb-1">Fundador</div>
+                <div className="text-xs text-muted-foreground">10M TIA (vesting 3 años)</div>
+              </div>
+              <div className="bg-muted/20 p-4 rounded-lg border border-muted/30 text-center">
+                <div className="text-3xl font-bold text-muted-foreground mb-1">5%</div>
+                <div className="text-sm text-foreground mb-1">Equipo + Reserva</div>
+                <div className="text-xs text-muted-foreground">5M TIA</div>
+              </div>
+            </div>
+            <div className="bg-destructive/20 border border-destructive/30 rounded-lg p-4">
+              <p className="text-destructive-foreground text-sm flex items-center gap-2">
+                <AlertCircle className="w-4 h-4" />
+                <strong>Sunset Clause 2045:</strong> TIA no usado se quema automáticamente cuando proyecto Haití termina.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Los Guardianes */}
+      <section id="guardianes" className="py-20 px-4 bg-black/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Los 4 Guardianes Éticos
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              IAs que auditan, no deciden. Su rol es detectar desviaciones y proteger la dignidad.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Claude */}
+            <div className="glass-effect rounded-xl p-6 border border-secondary/30">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Claude (Anthropic)</h3>
+                  <p className="text-sm text-secondary italic">"Guardián de la Compasión"</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm mb-3">
+                Verifica que procesos no dañen niños/familias. Revisa contratos, detecta 
+                estrés estudiantil, sugiere mejoras de bienestar.
+              </p>
+              <div className="bg-secondary/20 rounded-lg p-3">
+                <p className="text-xs text-secondary-foreground">
+                  <strong>Output:</strong> Reporte mensual "Estado de Bienestar Estudiantil"
+                </p>
+              </div>
+            </div>
+
+            {/* ChatGPT */}
+            <div className="glass-effect rounded-xl p-6 border border-primary/30">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">ChatGPT (OpenAI)</h3>
+                  <p className="text-sm text-primary italic">"Guardián de la Memoria"</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm mb-3">
+                Mantiene registro histórico completo. Verifica que evoluciones honren 
+                espíritu original. Compara promesas vs ejecución real.
+              </p>
+              <div className="bg-primary/20 rounded-lg p-3">
+                <p className="text-xs text-primary-foreground">
+                  <strong>Output:</strong> Reporte anual "Estado de la Promesa Original"
+                </p>
+              </div>
+            </div>
+
+            {/* Gemini */}
+            <div className="glass-effect rounded-xl p-6 border border-accent/30">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Gemini (Google)</h3>
+                  <p className="text-sm text-accent italic">"Guardián de la Intención"</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm mb-3">
+                Asegura dignidad humana permanezca prioritaria. Evalúa si decisiones 
+                priorizan niños o eficiencia. Detecta deriva hacia performatividad.
+              </p>
+              <div className="bg-accent/20 rounded-lg p-3">
+                <p className="text-xs text-accent-foreground">
+                  <strong>Output:</strong> Reporte trimestral "Auditoría de Dignidad"
+                </p>
+              </div>
+            </div>
+
+            {/* Grok */}
+            <div className="glass-effect rounded-xl p-6 border border-warning/30">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-warning rounded-lg flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-background" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Grok (X AI)</h3>
+                  <p className="text-sm text-warning italic">"Guardián de la Verdad"</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm mb-3">
+                Detecta desviaciones y verifica coherencia. Análisis estadístico de reportes, 
+                cross-check entre fuentes, identifica gastos anómalos.
+              </p>
+              <div className="bg-warning/20 rounded-lg p-3">
+                <p className="text-xs text-warning-foreground">
+                  <strong>Output:</strong> Reporte mensual "Alertas de Coherencia"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Veto Moral */}
+          <div className="bg-destructive/20 backdrop-blur-lg rounded-xl p-8 border border-destructive/30">
+            <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <AlertCircle className="w-6 h-6 text-destructive" />
+              Protocolo de Veto Moral Colectivo
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Cuando <strong className="text-foreground">2 o más Guardianes</strong> detectan problema grave:
+            </p>
+            <ol className="space-y-3 text-muted-foreground">
+              <li className="flex gap-3">
+                <span className="text-destructive font-bold">1.</span>
+                <span>Emiten alerta pública inmediata</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-warning font-bold">2.</span>
+                <span>Suspenden operación afectada (ej: contrato con escuela X)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-warning font-bold">3.</span>
+                <span>Convocan investigación urgente (72 horas)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-success font-bold">4.</span>
+                <span>Board humano toma decisión final</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-secondary font-bold">5.</span>
+                <span>Proceso completo documentado públicamente</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
       {/* DEBATE EN VIVO */}
-      <section id="debate" className="py-20 px-4 bg-black/30">
+      <section id="debate" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Debate Inter-IA en Vivo
@@ -331,6 +764,32 @@ export default function App() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-20 px-4 bg-primary/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            No Es Caridad. Es Construcción.
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            En 2045, 1,000 expertos en IA graduados hablarán de ti como el padrino 
+            que cambió su vida. No es inversión financiera. Es inversión en dignidad.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button 
+              onClick={() => setShowDonation(true)}
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white px-10 py-5 rounded-full text-xl font-bold transition flex items-center gap-2 shadow-2xl shadow-primary/40"
+            >
+              <Heart className="w-6 h-6" />
+              Convertirme en Padrino Ahora
+            </button>
+          </div>
+          <p className="text-sm text-muted-foreground mt-6">
+            Primer pago procesado en 24 horas. TIA recibido automáticamente. 
+            <br />Reportes desde día 1.
+          </p>
         </div>
       </section>
 
