@@ -269,64 +269,523 @@ export default function App() {
         </div>
       </section>
 
-      {/* El Origen */}
+      {/* Manifiesto */}
       <section id="mision" className="py-20 px-4 bg-black/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Nacido del Terremoto
+              MANIFIESTO CHARLYNET FOUNDATION
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              2011. Un año después del terremoto que mató 316,000 personas.
-              <br />Un grupo de operadores llegó a Haití. Y nunca pudieron olvidar.
+            <p className="text-2xl text-primary font-bold max-w-3xl mx-auto mb-4">
+              "No Se Pide Comida. Se Pide Licencia Para Existir."
             </p>
           </div>
 
-          <div className="bg-destructive/20 backdrop-blur-lg rounded-2xl p-8 border border-destructive/30 mb-8">
-            <div className="space-y-4">
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                Vimos madres <strong className="text-foreground">eligiendo qué hijo estudia</strong> porque 
-                no pueden pagar dos matrículas de $300/mes.
+          {/* I. POR QUÉ EXISTIMOS */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">I. POR QUÉ EXISTIMOS</h3>
+            <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 border border-border mb-6">
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                En 2011, un grupo de operadores llegó a Haití un año después del terremoto que mató 316,000 personas. 
+                Íbamos por semanas. Nos quedamos años.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Vimos algo que no pudimos dejar de ver:
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <strong className="text-destructive">No solo madres eligiendo qué hijo estudia.</strong><br />
+                Vimos madres sin comida para dar a sus hijos.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Ese es el hambre real. No la metáfora, no la estadística. El hambre que hace que una madre 
+                mire a sus tres hijos y sepa que solo tiene arroz para dos.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Y entendimos algo fundamental:
+              </p>
+              <p className="text-xl text-warning font-bold mb-4">
+                La educación sin alimentación es una promesa vacía.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Un niño con hambre no aprende. No importa cuán bueno sea el maestro o cuán nuevo sea el libro. 
+                El cerebro desnutrido no construye futuro.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Por eso CharlyNet no es solo "una fundación de educación".
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
-                El 90% de las escuelas son privadas. El 90% de las familias no pueden pagarlas.
-                Intentamos arreglar eso con modelos tradicionales. <strong className="text-destructive">Fracasamos.</strong>
+                Es un sistema de dignidad completa:
               </p>
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                Pero aprendimos algo crítico: <span className="text-warning font-bold">La ayuda 
-                internacional tradicional pierde 70-80% en corrupción local.</span> El sistema está roto. 
-                Por eso CharlyNet opera desde <strong className="text-primary">República Dominicana 
-                y Miami</strong>, contratando escuelas directamente, pagando a cuentas verificadas 
-                fuera de Haití.
+              <ul className="list-disc list-inside text-lg text-foreground/90 ml-6 mt-4 space-y-2">
+                <li><strong>Educación</strong> (lunes a viernes en escuela)</li>
+                <li><strong>Alimentación</strong> (2 comidas diarias en escuela)</li>
+                <li>Y lo que nadie más resuelve: <strong className="text-warning">¿Qué come el niño el sábado y domingo en su casa?</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* II. EL MODELO: "1,000 LATIDOS" */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">II. EL MODELO: "1,000 LATIDOS"</h3>
+            <div className="bg-primary/10 backdrop-blur-lg rounded-2xl p-8 border border-primary/30 mb-6">
+              <p className="text-xl text-foreground font-bold mb-4">
+                No son "1,000 estudiantes".<br />
+                Son 1,000 latidos que merecen seguir latiendo.
+              </p>
+              
+              <h4 className="text-2xl font-bold text-foreground mb-4 mt-8">
+                Proyecto Fase 1: Educación + Alimentación Escolar (Años 1-5)
+              </h4>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <strong>Cada niño = 1 contrato individual</strong>
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                No hay "programa grupal". Hay 1,000 contratos individuales.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                ¿Por qué?
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Porque así hacemos valer a cada uno por igual. No hay preferencias. No hay "estudiantes estrella" y "estudiantes relleno".
+              </p>
+              
+              <div className="bg-card/50 rounded-xl p-6 mb-6 font-mono text-sm">
+                <p className="text-foreground mb-2">Cada contrato dice:</p>
+                <p className="text-foreground/80">NIÑO: [Nombre completo]</p>
+                <p className="text-foreground/80">ESCUELA: [Nombre verificada]</p>
+                <p className="text-foreground/80 mt-4">INCLUYE:</p>
+                <ul className="text-foreground/80 ml-4">
+                  <li>- Matrícula año completo</li>
+                  <li>- Materiales escolares + uniforme</li>
+                  <li>- Desayuno (lunes a viernes)</li>
+                  <li>- Almuerzo (lunes a viernes)</li>
+                  <li>- Seguro médico básico</li>
+                  <li>- Seguimiento semanal coordinador local</li>
+                </ul>
+                <p className="text-foreground/80 mt-4">COSTO: $300 USD/mes</p>
+                <p className="text-foreground/80">PAGO: A cuenta escuela en RD/Miami</p>
+                <p className="text-foreground/80">DURACIÓN: Renovable anualmente si asistencia {'>'}90%</p>
+              </div>
+              
+              <p className="text-xl text-primary font-bold text-center">
+                Todos iguales. Todos con nombre. Todos con dignidad.
+              </p>
+            </div>
+
+            {/* El Problema Que Nadie Más Resuelve */}
+            <div className="bg-destructive/10 backdrop-blur-lg rounded-2xl p-8 border border-destructive/30 mb-6">
+              <h4 className="text-2xl font-bold text-foreground mb-4">
+                El Problema Que Nadie Más Resuelve:
+              </h4>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <strong>Lunes a viernes:</strong> El niño come en la escuela (2 comidas/día).<br />
+                <strong className="text-destructive">Sábado y domingo:</strong> ¿Qué come en su casa?
+              </p>
+              <p className="text-lg text-warning font-bold mb-4">
+                Esta es la pregunta que rompe la mayoría de los programas educativos.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Porque puedes financiar la escuela, pero no puedes financiar la casa sin crear dependencia perpetua.
+              </p>
+              <p className="text-xl text-primary font-bold">
+                CharlyNet lo resuelve diferente.
+              </p>
+            </div>
+
+            {/* Fase 2: Capacitación Familiar */}
+            <div className="bg-secondary/10 backdrop-blur-lg rounded-2xl p-8 border border-secondary/30 mb-6">
+              <h4 className="text-2xl font-bold text-foreground mb-4">
+                Proyecto Fase 2: Capacitación Familiar (Años 3-10)
+              </h4>
+              <p className="text-xl text-secondary font-bold mb-4">
+                "Preparar a los padres para que generen el sustento de sus hijos"
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <strong>No les damos comida el sábado.</strong><br />
+                <strong className="text-secondary">Les damos herramientas para que ELLOS compren la comida del sábado.</strong>
+              </p>
+              
+              <h5 className="text-xl font-bold text-foreground mb-3 mt-6">¿Cómo?</h5>
+              <h5 className="text-lg font-bold text-foreground mb-2 mt-4">Programa de Especialización Familiar:</h5>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-card/30 rounded-xl p-6">
+                  <h6 className="text-lg font-bold text-foreground mb-3">PARA MADRES:</h6>
+                  <ul className="text-foreground/80 space-y-2">
+                    <li>- Costura industrial (uniformes escolares locales)</li>
+                    <li>- Cocina comercial (venta de platos preparados)</li>
+                    <li>- Artesanía exportable (mercado USA/Europa vía cooperativas)</li>
+                    <li>- Agricultura urbana (huertos familiares)</li>
+                  </ul>
+                </div>
+                <div className="bg-card/30 rounded-xl p-6">
+                  <h6 className="text-lg font-bold text-foreground mb-3">PARA PADRES:</h6>
+                  <ul className="text-foreground/80 space-y-2">
+                    <li>- Albañilería certificada (reconstrucción constante en Haití)</li>
+                    <li>- Mecánica básica (motos/generadores)</li>
+                    <li>- Electricidad solar (instalación paneles)</li>
+                    <li>- Carpintería (muebles, puertas, ventanas)</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-card/50 rounded-xl p-6 font-mono text-sm mb-4">
+                <p className="text-foreground/80">DURACIÓN: 6 meses por especialidad</p>
+                <p className="text-foreground/80">COSTO: Incluido en el programa (sin costo familia)</p>
+                <p className="text-foreground/80">REQUISITO: Hijo en CharlyNet Schools con asistencia {'>'}90%</p>
+              </div>
+              
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <strong>Objetivo:</strong>
+              </p>
+              <ul className="text-foreground/90 space-y-2 ml-6">
+                <li>• Año 5 → 500 familias con al menos 1 adulto generando ingresos estables</li>
+                <li>• Año 10 → 1,000 familias autosuficientes</li>
+              </ul>
+              
+              <p className="text-xl text-secondary font-bold text-center mt-6">
+                No es caridad. Es construcción de economía local.
+              </p>
+            </div>
+
+            {/* Por Qué Esto Funciona */}
+            <div className="bg-accent/10 backdrop-blur-lg rounded-2xl p-8 border border-accent/30 mb-6">
+              <h4 className="text-2xl font-bold text-foreground mb-6">
+                Por Qué Esto Funciona (Y Otros Programas No):
+              </h4>
+              
+              <div className="space-y-6">
+                <div>
+                  <h5 className="text-xl font-bold text-foreground mb-3">1. Auditorías Constantes</h5>
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                    Conocemos la idiosincrasia de la comunidad. Hemos vivido ahí. Sabemos dónde están los puntos de fuga:
+                  </p>
+                  <ul className="text-foreground/90 space-y-2 ml-6">
+                    <li>- Escuelas que cobran pero no dan comida</li>
+                    <li>- Familias que venden materiales escolares por necesidad</li>
+                    <li>- Coordinadores locales que pueden ser coaccionados</li>
+                  </ul>
+                  <p className="text-lg text-foreground/90 leading-relaxed mt-4 mb-4">
+                    <strong>Por eso:</strong>
+                  </p>
+                  <ul className="text-foreground/90 space-y-2 ml-6">
+                    <li>- Visitas semanales sorpresa a escuelas</li>
+                    <li>- Entrevistas aleatorias con familias (sin previo aviso)</li>
+                    <li>- Fotos timestamped de comidas servidas</li>
+                    <li>- Cross-check entre lo que escuela reporta y lo que familia confirma</li>
+                  </ul>
+                  <p className="text-lg text-accent font-bold mt-4">
+                    Control estricto, pero con compasión.
+                  </p>
+                </div>
+
+                <div>
+                  <h5 className="text-xl font-bold text-foreground mb-3">2. Un Niño, Un Contrato</h5>
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                    No es "ayudamos a 100 niños en Escuela X".<br />
+                    Es "Jean-Pierre, 7 años, Escuela ABC, contrato #001".
+                  </p>
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                    <strong>Si Jean-Pierre falta 3 semanas seguidas:</strong>
+                  </p>
+                  <ul className="text-foreground/90 space-y-2 ml-6">
+                    <li>- Coordinador visita familia (¿está enfermo? ¿Problemas en casa?)</li>
+                    <li>- Si es problema resoluble, ayudamos</li>
+                    <li>- Si familia decidió sacarlo, respetamos pero liberamos plaza para otro niño</li>
+                    <li>- Jean-Pierre puede volver cuando familia esté lista</li>
+                  </ul>
+                  <p className="text-lg text-accent font-bold mt-4">
+                    Dignidad significa también respetar decisiones, aunque no las entendamos.
+                  </p>
+                </div>
+
+                <div>
+                  <h5 className="text-xl font-bold text-foreground mb-3">3. La Solución Es En El Terreno</h5>
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                    No diseñamos "la solución perfecta" desde Miami.
+                  </p>
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                    <strong>Encontraremos en el terreno</strong> qué funciona:
+                  </p>
+                  <ul className="text-foreground/90 space-y-2 ml-6 mb-4">
+                    <li>- ¿Las madres prefieren costura o cocina?</li>
+                    <li>- ¿Los padres tienen más demanda de albañilería o electricidad?</li>
+                    <li>- ¿Qué cooperativas locales ya funcionan y podemos conectar?</li>
+                  </ul>
+                  <ul className="text-foreground/90 space-y-2 ml-6">
+                    <li>• <strong>Año 1-2:</strong> Validamos qué especialidades tienen mercado real</li>
+                    <li>• <strong>Año 3-5:</strong> Escalamos las que funcionan, descartamos las que no</li>
+                    <li>• <strong>Año 6-10:</strong> Modelo probado, replicable</li>
+                  </ul>
+                  <p className="text-lg text-accent font-bold mt-4">
+                    No hay "plan maestro" desde el escritorio.<br />
+                    Hay aprendizaje adaptativo desde el barro.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* III. LOS NÚMEROS REALES */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">III. LOS NÚMEROS REALES</h3>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-primary/10 backdrop-blur-lg rounded-2xl p-8 border border-primary/30">
+                <h4 className="text-xl font-bold text-foreground mb-4">
+                  Fase 1: Educación + Alimentación (5 años)
+                </h4>
+                <div className="bg-card/50 rounded-xl p-6 font-mono text-sm mb-4">
+                  <p className="text-foreground/80">100 niños × $300/mes × 12 meses × 5 años = $1,800,000</p>
+                </div>
+                <p className="text-foreground/90 mb-3">Desglose por niño/año:</p>
+                <ul className="text-foreground/80 space-y-1 text-sm">
+                  <li>- Matrícula: $1,200</li>
+                  <li>- Materiales + uniforme: $400</li>
+                  <li>- Alimentación escolar: $1,200 (200 días × $6/día)</li>
+                  <li>- Seguro médico: $200</li>
+                  <li>- Coordinación: $600</li>
+                  <li>- Contingencias: $400</li>
+                </ul>
+                <p className="text-primary font-bold mt-4">
+                  TOTAL: $3,600/año × 5 años = $18,000 por niño completo
+                </p>
+              </div>
+
+              <div className="bg-secondary/10 backdrop-blur-lg rounded-2xl p-8 border border-secondary/30">
+                <h4 className="text-xl font-bold text-foreground mb-4">
+                  Fase 2: Capacitación Familiar (paralelo años 3-10)
+                </h4>
+                <div className="bg-card/50 rounded-xl p-6 font-mono text-sm mb-4">
+                  <p className="text-foreground/80">500 familias × $800 (costo capacitación 6 meses) = $400,000</p>
+                </div>
+                <p className="text-foreground/90 mb-3">Incluye:</p>
+                <ul className="text-foreground/80 space-y-1 text-sm">
+                  <li>- Instructor especializado (local)</li>
+                  <li>- Materiales de práctica</li>
+                  <li>- Certificación (documento oficial)</li>
+                  <li>- Conexión con cooperativas/empleadores</li>
+                  <li>- Seguimiento 1 año post-capacitación</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-accent/10 backdrop-blur-lg rounded-2xl p-8 border border-accent/30">
+              <h4 className="text-2xl font-bold text-foreground mb-4">
+                Total Proyecto "1,000 Latidos" (10 años):
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="bg-card/30 rounded-xl p-4">
+                  <p className="text-foreground/80">Fase 1 (Educación): <span className="text-primary font-bold">$18M</span></p>
+                </div>
+                <div className="bg-card/30 rounded-xl p-4">
+                  <p className="text-foreground/80">Fase 2 (Capacitación): <span className="text-secondary font-bold">$4M</span></p>
+                </div>
+                <div className="bg-card/30 rounded-xl p-4">
+                  <p className="text-foreground/80">Fase 3 (Universidad): <span className="text-accent font-bold">$8M</span> (100 becas)</p>
+                </div>
+                <div className="bg-card/30 rounded-xl p-4">
+                  <p className="text-foreground/80">Operación + Coordinación: <span className="text-warning font-bold">$5M</span></p>
+                </div>
+              </div>
+              <div className="bg-card/50 rounded-xl p-4 mb-4">
+                <p className="text-foreground/80">Contingencias + Reserva: <span className="text-muted-foreground font-bold">$3M</span></p>
+              </div>
+              <p className="text-3xl text-accent font-bold text-center mb-6">
+                TOTAL: $38,000,000 para primeros 10 años
+              </p>
+              <div className="border-t border-border pt-6">
+                <p className="text-lg text-foreground/90 mb-2"><strong>Después del Año 10:</strong></p>
+                <ul className="text-foreground/80 space-y-2 ml-6">
+                  <li>• Las primeras 500 familias generan ingresos propios</li>
+                  <li>• Trust perpetuo genera $2-3M/año pasivos</li>
+                  <li>• Modelo se vuelve parcialmente autosostenible</li>
+                  <li>• Años 11-20 requieren $62M adicionales (total $100M en 20 años)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* IV. LA PROMESA DEL SÁBADO */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">IV. LA PROMESA DEL SÁBADO</h3>
+            <div className="bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-lg rounded-2xl p-8 border border-primary/30">
+              <p className="text-xl text-foreground/90 leading-relaxed mb-6">
+                Este es el compromiso que nadie más hace:
+              </p>
+              <blockquote className="text-2xl text-foreground font-bold italic border-l-4 border-primary pl-6 mb-6">
+                "No solo educamos a tu hijo de lunes a viernes.<br />
+                Te capacitamos a vos para que el sábado y domingo tu hijo también coma."
+              </blockquote>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Porque entendemos algo fundamental:
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Un niño que va a la escuela bien alimentado pero vuelve a una casa sin comida, carga culpa.
+              </p>
+              <ul className="text-lg text-destructive italic space-y-2 ml-6 mb-6">
+                <li>"Yo comí y mis hermanos no."</li>
+                <li>"Yo tengo oportunidades y mis padres siguen sin trabajo."</li>
+              </ul>
+              <p className="text-xl text-warning font-bold mb-6">
+                Esa culpa mata el futuro.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Por eso CharlyNet no "rescata" niños de sus familias.
+              </p>
+              <p className="text-2xl text-primary font-bold text-center">
+                CharlyNet eleva familias completas.
               </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="glass-effect rounded-xl p-6">
-              <div className="text-4xl mb-3">🏫</div>
-              <h3 className="text-foreground font-bold mb-2">El Problema</h3>
-              <p className="text-muted-foreground text-sm">
-                90% escuelas privadas. $300/mes inaccesible para mayoría. Familias 
-                eligiendo qué hijo estudia.
+          {/* V. CÓMO NO TRAICIONAREMOS ESTO */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">V. CÓMO NO TRAICIONAREMOS ESTO</h3>
+            
+            <div className="space-y-6">
+              <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 border border-border">
+                <h4 className="text-xl font-bold text-primary mb-4">Promesa 1: Transparencia Del Sábado</h4>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  No solo reportamos "cuántos niños asisten a escuela".<br />
+                  Reportamos:
+                </p>
+                <ul className="text-foreground/90 space-y-2 ml-6">
+                  <li>• Cuántos padres completaron capacitación</li>
+                  <li>• Cuántos consiguieron trabajo/ingresos después</li>
+                  <li>• Cuánto aumentó ingreso familiar promedio</li>
+                  <li>• Cuántas familias dejaron de necesitar ayuda alimentaria externa</li>
+                </ul>
+                <p className="text-lg text-primary font-bold mt-4">
+                  Queremos trabajar para salir del trabajo.<br />
+                  Si en Año 10 las 1,000 familias son autosuficientes, habremos ganado, no perdido.
+                </p>
+              </div>
+
+              <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 border border-border">
+                <h4 className="text-xl font-bold text-secondary mb-4">Promesa 2: Control Estricto Sin Paternalismo</h4>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  Visitamos semanalmente, pero no juzgamos.
+                </p>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  Si una familia usa dinero ganado en capacitación para comprar un celular en vez de comida, no los regañamos como niños.
+                </p>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  Pero sí hacemos follow-up:
+                </p>
+                <ul className="text-foreground/90 space-y-2 ml-6">
+                  <li>"¿El niño sigue comiendo?"</li>
+                  <li>"¿Necesitan ajuste en el plan?"</li>
+                  <li>"¿Hay problema que podamos ayudar a resolver?"</li>
+                </ul>
+                <p className="text-lg text-secondary font-bold mt-4">
+                  Control estricto de que el niño esté bien.<br />
+                  Respeto absoluto a decisiones adultas de la familia.
+                </p>
+              </div>
+
+              <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 border border-border">
+                <h4 className="text-xl font-bold text-accent mb-4">Promesa 3: Si No Podemos Resolver El Sábado, Lo Diremos</h4>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  Puede pasar que en Año 3 descubramos:<br />
+                  "La capacitación no está funcionando. Las familias no consiguen trabajo."
+                </p>
+                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                  Si pasa:
+                </p>
+                <ul className="text-foreground/90 space-y-2 ml-6">
+                  <li>• Lo publicamos inmediatamente</li>
+                  <li>• Convocamos a padrinos y comunidad</li>
+                  <li>• Exploramos Plan B (¿Subsidio alimentario directo? ¿Otro modelo?)</li>
+                  <li>• Documentamos qué falló y por qué</li>
+                </ul>
+                <p className="text-lg text-accent font-bold mt-4">
+                  No esconderemos fracasos detrás de "estamos trabajando en ello".
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* VI. EL LLAMADO */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">VI. EL LLAMADO (Actualizado)</h3>
+            <div className="bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 backdrop-blur-lg rounded-2xl p-8 border border-primary/30">
+              <p className="text-xl text-foreground/90 leading-relaxed mb-4">
+                No te pedimos que pagues una matrícula.
+              </p>
+              <p className="text-2xl text-primary font-bold mb-6">
+                Te pedimos que sostengas un latido durante 20 años.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                No te prometemos "un niño feliz en fotos".<br />
+                Te prometemos:
+              </p>
+              <ul className="text-lg text-foreground/90 space-y-3 ml-6 mb-6">
+                <li>• <strong>Un niño alimentado</strong> (7 días, no solo 5)</li>
+                <li>• <strong>Una familia capacitada</strong> (no solo un estudiante aislado)</li>
+                <li>• <strong>Un modelo que aprende</strong> (no un plan rígido que falla)</li>
+                <li>• <strong>Honestidad brutal</strong> (incluyendo cuando no sabemos)</li>
+              </ul>
+              <p className="text-lg text-foreground/90 mb-6">
+                Si eso resuena:
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="bg-card/50 rounded-xl p-6">
+                  <h5 className="text-lg font-bold text-primary mb-2">Padrino Fundador</h5>
+                  <p className="text-2xl font-bold text-foreground mb-2">$10,000</p>
+                  <p className="text-sm text-foreground/80">Sostienes 1 latido completo (niño + familia) durante primeros años críticos</p>
+                </div>
+                <div className="bg-card/50 rounded-xl p-6">
+                  <h5 className="text-lg font-bold text-secondary mb-2">Padrino Compromiso</h5>
+                  <p className="text-2xl font-bold text-foreground mb-2">$100/mes</p>
+                  <p className="text-sm text-foreground/80">Participas en sostener el sistema que sostiene a todos</p>
+                </div>
+                <div className="bg-card/50 rounded-xl p-6">
+                  <h5 className="text-lg font-bold text-accent mb-2">Contribución Libre</h5>
+                  <p className="text-2xl font-bold text-foreground mb-2">Lo que puedas</p>
+                  <p className="text-sm text-foreground/80">Cada dólar va a un latido real</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* VII. EPÍLOGO */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-6">VII. EPÍLOGO: LA MADRE Y EL ARROZ</h3>
+            <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 border border-border">
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                En 2013, en un barrio de Puerto Príncipe, una madre nos dijo algo que nunca olvidamos:
+              </p>
+              <blockquote className="text-2xl text-primary font-bold italic border-l-4 border-primary pl-6 mb-6">
+                "No quiero que alimentes a mis hijos para siempre.<br />
+                Quiero que me enseñes a alimentarlos yo."
+              </blockquote>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                Esa frase construyó CharlyNet.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                No somos la ONG que trae bolsas de arroz cada mes durante 20 años.
+              </p>
+              <p className="text-xl text-foreground font-bold mb-4">
+                Somos la red que enseña a sembrar, cosechar, cocinar, vender y comprar el arroz.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                Mientras tanto, durante los años que toma aprender, tus hijos comen en la escuela.
+              </p>
+              <p className="text-2xl text-primary font-bold text-center">
+                Eso es "1,000 Latidos".
               </p>
             </div>
-            <div className="glass-effect rounded-xl p-6">
-              <div className="text-4xl mb-3">🛡️</div>
-              <h3 className="text-foreground font-bold mb-2">La Solución</h3>
-              <p className="text-muted-foreground text-sm">
-                Contratos directos con escuelas desde RD/Miami. Pagos trazables blockchain. 
-                Coordinación local por equipo haitiano de confianza.
-              </p>
-            </div>
-            <div className="glass-effect rounded-xl p-6">
-              <div className="text-4xl mb-3">🎓</div>
-              <h3 className="text-foreground font-bold mb-2">La Meta</h3>
-              <p className="text-muted-foreground text-sm">
-                1,000 niños. 20 años. Desde primaria hasta graduación universitaria + 
-                expertise en IA ética.
-              </p>
-            </div>
+          </div>
+
+          {/* Firma */}
+          <div className="text-center bg-card/20 backdrop-blur-lg rounded-2xl p-8 border border-border">
+            <p className="text-lg text-foreground/90 mb-2">Firmado:</p>
+            <p className="text-xl font-bold text-foreground mb-4">Los Operadores Anónimos de CharlyNet</p>
+            <p className="text-sm text-muted-foreground mb-4">(Verificados por: Claude, ChatGPT, Gemini, Grok)</p>
+            <p className="text-sm text-muted-foreground mb-2">Fecha: 29 de octubre de 2025</p>
+            <p className="text-xs text-muted-foreground font-mono">Checksum de este compromiso:</p>
+            <p className="text-xs text-muted-foreground font-mono">SHA-256: [se genera al publicar]</p>
           </div>
         </div>
       </section>
