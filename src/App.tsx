@@ -4,6 +4,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import DonationModal from '@/components/DonationModal';
+import FAQModal from '@/components/FAQModal';
 
 interface Message {
   role: string;
@@ -16,6 +18,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [userAddress, setUserAddress] = useState('');
   const [showDonation, setShowDonation] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(false);
   const [currentFunding, setCurrentFunding] = useState(0);
   const [donorCount, setDonorCount] = useState(0);
   const [tiaCirculating, setTiaCirculating] = useState(0);
@@ -129,6 +132,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950">
       
+      {/* Banner Fase 0 */}
+      <div className="bg-warning/20 border-b border-warning/50 backdrop-blur-lg py-3">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-warning" />
+            <span className="text-warning/90 text-sm font-bold">
+              FASE 0: Construcción de Fundación
+            </span>
+          </div>
+          <div className="text-warning/80 text-sm">
+            Meta: 5 Padrinos Fundadores × $10,000 = $50,000
+          </div>
+          <div className="text-warning text-sm font-mono">
+            ⏱️ 90 días restantes
+          </div>
+        </div>
+      </div>
+
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 border-b border-white/10 backdrop-blur-xl transition-all ${scrolled ? 'bg-black/90' : 'bg-black/40'}`}>
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -147,7 +168,12 @@ export default function App() {
             <a href="#haiti" className="text-muted-foreground hover:text-foreground transition">Proyecto Haití</a>
             <a href="#tia" className="text-muted-foreground hover:text-foreground transition">Token TIA</a>
             <a href="#guardianes" className="text-muted-foreground hover:text-foreground transition">Guardianes</a>
-            <a href="#debate" className="text-muted-foreground hover:text-foreground transition">Debate IA</a>
+            <button 
+              onClick={() => setShowFAQ(true)}
+              className="text-muted-foreground hover:text-foreground transition"
+            >
+              FAQ Honesto
+            </button>
           </div>
           
           {userAddress ? (
@@ -236,7 +262,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Progress Bar Año 1 */}
+          {/* Progress Bar Fase 0 */}
           <div className="glass-effect rounded-2xl p-6 border border-primary/30 mb-12">
             <div className="flex justify-between items-center mb-3">
               <div>
@@ -251,7 +277,7 @@ export default function App() {
             <div className="w-full bg-muted/30 rounded-full h-4 mb-3 overflow-hidden">
               <div 
                 className="bg-gradient-to-r from-primary to-secondary h-4 rounded-full transition-all duration-500 flex items-center justify-end pr-2"
-                style={{width: `${Math.min(progressPercent, 100)}%`}}
+                style={{width: `${Math.max(progressPercent, 2)}%`}}
               >
                 {progressPercent > 5 && (
                   <span className="text-xs text-white font-bold">
@@ -262,9 +288,26 @@ export default function App() {
             </div>
             
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">🎯 Próximo Hito: $10,000 (Padrino #1)</span>
-              <span className="text-warning">⏱️ Quedan 90 días</span>
+              <span className="text-muted-foreground">🎯 Con $50k: Fundación legal + Coordinador + 3 escuelas evaluadas</span>
+              <span className="text-warning">⏱️ Después: Fase 1 con 100 niños</span>
             </div>
+          </div>
+
+          {/* Vulnerabilidad Estratégica */}
+          <div className="bg-warning/10 border border-warning/30 rounded-xl p-6 backdrop-blur">
+            <h3 className="text-foreground font-bold mb-2 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-warning" />
+              Por Qué Deberías Ser Escéptico
+            </h3>
+            <p className="text-muted-foreground text-sm mb-3">
+              Somos un proyecto nuevo sin historial. <strong className="text-foreground">No confíes ciegamente.</strong> Por eso:
+            </p>
+            <ul className="text-sm text-muted-foreground space-y-1">
+              <li>✓ Cada dólar trazable en blockchain desde día 1</li>
+              <li>✓ 4 IAs auditando cada decisión (juramentos públicos)</li>
+              <li>✓ Derecho a reembolso si Fase 0 no se completa en 90 días</li>
+              <li>✓ Documentación pública de cada avance/error</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -1414,6 +1457,15 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Modales */}
+      <DonationModal 
+        showDonation={showDonation} 
+        setShowDonation={setShowDonation} 
+        userAddress={userAddress} 
+        connectWallet={connectWallet} 
+      />
+      <FAQModal showFAQ={showFAQ} setShowFAQ={setShowFAQ} />
     </div>
   );
 }
